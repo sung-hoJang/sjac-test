@@ -12,6 +12,11 @@ create table cu_board(
 drop table cu_board;
 select * from cu_board;
 
+
+select g.gleader_id as gleader_id, g.gname as gname, g.ginfo as ginfo, g.gmember_count as gmember_count, g.glocation as glocation, g.gsubject as gsubject, c.name as name
+		from cu_member c, cu_group g
+		where c.id = g.gleader_id
+
 -- CU_MEMBER 테이블( 회원 )
 create table cu_member(
 	id varchar2(50) primary key,
