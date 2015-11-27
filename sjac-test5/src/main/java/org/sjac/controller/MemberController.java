@@ -29,7 +29,7 @@ public class MemberController {
 		if (mvo != null) {
 			session.setAttribute("mvo", mvo);
 		}
-		return new ModelAndView("account_posts");
+		return new ModelAndView("home");
 	}
 	
 	@RequestMapping("logout.do")

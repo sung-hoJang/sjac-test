@@ -411,7 +411,8 @@
                                 <div class="widget-body">
                                 <c:choose>
                                 	<c:when test="${sessionScope.mvo != null}">
-                                		${sessionScope.mvo.name} 로그인
+                                		${sessionScope.mvo.name} 로그인 <br>
+                                		<a href="logout.do">로그아웃</a>
                                 	</c:when>
                                 	<c:otherwise>
                                 	 <form action="login.do" method="post">
