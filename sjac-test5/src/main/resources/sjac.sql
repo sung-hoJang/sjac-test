@@ -13,9 +13,7 @@ drop table cu_board;
 select * from cu_board;
 
 
-select g.gleader_id as gleader_id, g.gname as gname, g.ginfo as ginfo, g.gmember_count as gmember_count, g.glocation as glocation, g.gsubject as gsubject, c.name as name
-		from cu_member c, cu_group g
-		where c.id = g.gleader_id
+
 
 -- CU_MEMBER 테이블( 회원 )
 create table cu_member(
@@ -72,10 +70,12 @@ create table cu_group(
 	foreign key(gsubject) references cu_subject_category(subject)
 )
 
+
+
 insert into cu_group values('go','고대원','토익','토익스터디',6,'서울');
 insert into cu_group values('neung','이능균','토익','토익스터디',6,'서울');
 insert into cu_group values('gogosing','고대','토익','토익스터디',6,'서울');
-insert into cu_group values('kjh','토익스터디하자!','토익','토익스터디 열심히 할 사람만 ',6,'서울');
+insert into cu_group values('kjy','토익스터디하자!','토익','토익스터디 열심히 할 사람만 ',6,'서울');
 drop table cu_group;
 select * from cu_group;
 
@@ -116,3 +116,9 @@ create table cu_keyword_frequency(
 drop table cu_keyword_frequency;
 select * from cu_keyword_frequency;
 
+
+
+select g.gleader_id as gleader_id, g.gname as gname, g.ginfo as ginfo, g.gmember_count as gmember_count, g.glocation as glocation, g.gsubject as gsubject, s.subject_category as subject_category, c.name as name
+		from cu_member c, cu_group g, cu_subject_category s
+		where c.id = g.gleader_id and g.gsubject = s.subject
+select * from cu_group
