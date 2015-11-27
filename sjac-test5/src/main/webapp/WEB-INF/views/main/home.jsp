@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-     
+   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
             <!-- 메인 ---------------------------------------------시작 (메인끝 라인 넘버 : 584) -->
             <section class="main">
                 <div class="container">
@@ -404,7 +404,12 @@
                                     <h3>LOGIN</h3>
                                 </div>
                                 <div class="widget-body">
-                                    <form action="login.do" method="post">
+                                <c:choose>
+                                	<c:when test="${sessionScope.mvo != null}">
+                                		${sessionScope.mvo.name} 로그인
+                                	</c:when>
+                                	<c:otherwise>
+                                	 <form action="login.do" method="post">
                                         <div class="form-group">
                                             <input type="text" class="form-control input-lg" placeholder="Id" name="id">
                                         </div>
@@ -423,6 +428,8 @@
                                             <button class="btn btn-block btn-custom">로그인</button>
                                         </div>
                                     </form>
+                                	</c:otherwise>
+                                </c:choose>                    
                                 </div>
                             </div>
                             
