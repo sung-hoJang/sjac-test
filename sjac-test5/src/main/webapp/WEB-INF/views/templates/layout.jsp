@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
  <head>
@@ -29,46 +29,67 @@
 
     </head>
 <body>
-        <div class="wrapper">
-<div id="container">
-	<div id="header"><tiles:insertAttribute name="header"/></div>
-	<div id="left"><tiles:insertAttribute name="hero"/></div>
-	<div id="main"><tiles:insertAttribute name="main"/></div>
-	<div id="counter"><tiles:insertAttribute name="counter"/></div>
-	<div id="footer"><tiles:insertAttribute name="footer"/></div>
-</div>
-</div>
-<!-- Essentials -->
-<script src="assets/bootstrap/js/bootstrap.min.js"></script>
-<script src="assets/plugins/owl-carousel/owl.carousel.js"></script>
-<script src="assets/plugins/counter/jquery.countTo.js"></script>
-<script type="text/javascript">
-    $(document).ready(function () {
+	<div class="wrapper">
+		<div id="container">
+			<div id="header">
+				<tiles:insertAttribute name="header" />
+			</div>
+			<div id="left">
+				<tiles:insertAttribute name="hero" />
+			</div>
 
-        // ===========Featured Owl Carousel============
-        if ($(".owl-carousel-featured").length > 0) {
-            $(".owl-carousel-featured").owlCarousel({
-                items:3,
-                lazyLoad: true,
-                pagination: true,
-                autoPlay: 5000,
-                stopOnHover: true
-            });
-        }
+			<section class="main">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-sm-8">
+						<tiles:insertAttribute name="homegroup" />
+					</div>
 
-        // ==================Counter====================
-        $('.item-count').countTo({
-            formatter: function (value, options) {
-                return value.toFixed(options.decimals);
-            },
-            onUpdate: function (value) {
-                console.debug(this);
-            },
-            onComplete: function (value) {
-                console.debug(this);
-            }
-        });
-    });
-</script>
+					<div class="col-md-4 col-sm-4">
+						<tiles:insertAttribute name="homelogin" />
+					</div>
+				</div>
+			</div>
+			</section>
+			<div id="counter">
+				<tiles:insertAttribute name="counter" />
+			</div>
+			<div id="footer">
+				<tiles:insertAttribute name="footer" />
+			</div>
+		</div>
+	</div>
+	<!-- Essentials -->
+	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+	<script src="assets/plugins/owl-carousel/owl.carousel.js"></script>
+	<script src="assets/plugins/counter/jquery.countTo.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			// ===========Featured Owl Carousel============
+			if ($(".owl-carousel-featured").length > 0) {
+				$(".owl-carousel-featured").owlCarousel({
+					items : 3,
+					lazyLoad : true,
+					pagination : true,
+					autoPlay : 5000,
+					stopOnHover : true
+				});
+			}
+
+			// ==================Counter====================
+			$('.item-count').countTo({
+				formatter : function(value, options) {
+					return value.toFixed(options.decimals);
+				},
+				onUpdate : function(value) {
+					console.debug(this);
+				},
+				onComplete : function(value) {
+					console.debug(this);
+				}
+			});
+		});
+	</script>
 </body>
 </html>

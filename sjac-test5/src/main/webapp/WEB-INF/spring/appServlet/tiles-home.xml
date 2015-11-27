@@ -21,7 +21,14 @@
 		<put-attribute name="hero" value="/WEB-INF/views/templates/hero.jsp"></put-attribute>
 		<put-attribute name="header" value="/WEB-INF/views/templates/header.jsp"></put-attribute>
 		<put-attribute name="footer" value="/WEB-INF/views/templates/footer.jsp"></put-attribute>
-		<put-attribute name="main" value="/WEB-INF/views/main/home.jsp"></put-attribute>
+		
+		<!-- 수정합니다. -->
+<!-- 		<put-attribute name="main" value="/WEB-INF/views/main/home.jsp"></put-attribute> -->
+		<put-attribute name="homegroup" value="/WEB-INF/views/templates/homegroup.jsp"></put-attribute>
+		<put-attribute name="homelogin" value="/WEB-INF/views/templates/homelogin.jsp"></put-attribute>
+		<!-- 수정합니다. -->
+		
+		
 		<put-attribute name="counter" value="/WEB-INF/views/templates/counter.jsp"></put-attribute>
 	</definition>
 </tiles-definitions>

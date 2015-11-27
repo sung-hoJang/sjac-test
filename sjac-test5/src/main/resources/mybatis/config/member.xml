@@ -7,6 +7,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="login" resultType="mvo">
 		select * from cu_member where id=#{id} and password=#{password}
 	</select>
+		<insert id="register" parameterType="mvo" >
+ 	insert into cu_member(id,password,name,location,tel,gender,birthdate)
+ 	values(#{id}, #{password}, #{name}, #{location},#{tel},#{gender},to_date(#{birthdate}))
+ 	</insert>
+ 	
+ 	<select id="idcheck" resultType="int">
+       select count(*) from cu_member where id=#{id}
+    </select>
+
+ 	
 </mapper>
  
  
