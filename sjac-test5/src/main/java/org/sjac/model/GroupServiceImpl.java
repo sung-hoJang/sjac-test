@@ -3,8 +3,14 @@ package org.sjac.model;
 import java.util.List;
 import java.util.Map;
 
-public class GroupServiceImpl implements GroupService{
+import javax.annotation.Resource;
 
+import org.springframework.stereotype.Service;
+
+@Service
+public class GroupServiceImpl implements GroupService{
+	@Resource
+	private GroupDAO groupDAO;
 	@Override
 	public GroupVO findGroupByLeaderId(String id) {
 		// TODO Auto-generated method stub
@@ -60,9 +66,8 @@ public class GroupServiceImpl implements GroupService{
 	}
 
 	@Override
-	public List<GroupVO> getAllGroupList() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<GroupVO> getAllGroupList() {	
+		return groupDAO.getAllGroupList();
 	}
 
 }

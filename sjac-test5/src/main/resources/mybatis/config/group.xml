@@ -4,19 +4,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="group">
 
-<!-- 	<resultMap type="gvo" id="groupRM"> -->
-<!-- 		<result property="gLeaderId" column="gleader_id" />	 -->
-<!-- 		<result property="gName" column="gname" />	 -->
-<!-- 		<result property="gInfo" column="ginfo" />	 -->
-<!-- 		<result property="gCount" column="gmember_count"/> -->
-<!-- 		<result property="gLocation" column="glocation"/> -->
-<!-- 		<result property="subjectVO.subject" column="subject"/> -->
-<!-- 		<result property="subjectVO.subjectCategory" column="subject_category"/> -->
-<!-- 	</resultMap> -->
+	<resultMap type="gvo" id="groupRM">
+		<result property="memberVO.id" column="gleader_id" />
+		<result property="memberVO.name" column="name" />	
+		<result property="gName" column="gname" />	
+		<result property="gInfo" column="ginfo" />	
+		<result property="gCount" column="gmember_count"/>
+		<result property="gLocation" column="glocation"/>
+		<result property="subjectVO.subject" column="gsubject"/>
+		<result property="subjectVO.subjectCategory" column="subject_category"/>
+	</resultMap>
 
-<!-- 	<select id="getAllGroupList" resultMap="groupRM"> -->
-<!-- 		select * from cu_group; -->
-<!-- 	</select> -->
+	<select id="getAllGroupList" resultMap="groupRM">
+		select g.gleader_id as gleader_id, g.gname as gname, g.ginfo as ginfo, g.gmember_count as gmember_count, g.glocation as glocation, g.gsubject as gsubject, s.subject_category as subject_category, c.name as name
+		from cu_member c, cu_group g, cu_subject_category s
+		where c.id = g.gleader_id and g.gsubject = s.subject
+	</select>
 </mapper> 		
  
  

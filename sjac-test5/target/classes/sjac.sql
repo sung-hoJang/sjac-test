@@ -30,6 +30,9 @@ values('go','1234','고대원','서울','0109734','남',to_date('1988.01.25','yy
 values('neung','1234','이능균','지방','010','남',to_date('1987.08.27','yyyy.mm.dd'));
 	insert into CU_MEMBER(id,password,name,location,tel,gender,birthdate)
 values('gogosing','1234','고대','천안','010','남',to_date('2015.07.23','yyyy.mm.dd'));
+
+insert into CU_MEMBER(id,password,name,location,tel,gender,birthdate)
+values('kjy','1234','주예','미쿡','010','여',to_date('1990.07.23','yyyy.mm.dd'));
 -- CU_GROUP_MEMBER 테이블 ( 그룹원 )
 -- 생성순서(3) category -> group ->  groupmember 
 create table cu_group_member(
@@ -65,6 +68,9 @@ create table cu_group(
 )
 
 insert into cu_group values('go','고대원','토익','토익스터디',6,'서울');
+insert into cu_group values('neung','이능균','토익','토익스터디',6,'서울');
+insert into cu_group values('gogosing','고대','토익','토익스터디',6,'서울');
+insert into cu_group values('kjh','토익스터디하자!','토익','토익스터디 열심히 할 사람만 ',6,'서울');
 drop table cu_group;
 select * from cu_group;
 

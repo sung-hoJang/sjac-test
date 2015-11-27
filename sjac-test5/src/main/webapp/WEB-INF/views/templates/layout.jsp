@@ -47,6 +47,9 @@
 
 					<div class="col-md-4 col-sm-4">
 						<tiles:insertAttribute name="homelogin" />
+						 <div class="banner-widget">
+                                <img src="http://placehold.it/600x275" alt="banner" class="img-responsive">
+						 </div>
 					</div>
 				</div>
 			</div>
