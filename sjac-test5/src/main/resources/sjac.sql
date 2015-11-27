@@ -7,10 +7,19 @@ create table cu_board(
 	title varchar2(50) not null,
 	id varchar2(50) not null,
 	mydate date not null,
-	hits number not null
+	hits number not null,
+	foreign key(id) references cu_member(id)
 )
 drop table cu_board;
 select * from cu_board;
+
+create sequence cu_board_seq;
+
+insert into CU_BOARD values(CU_BOARD_seq.nextval, )
+
+
+
+
 
 -- CU_MEMBER 테이블( 회원 )
 create table cu_member(
@@ -24,10 +33,7 @@ create table cu_member(
 )
 drop table cu_member;
 select * from cu_member;
-	insert into CU_MEMBER(id,password,name,location,tel,gender,birthdate)
-values('go','1234','고대원','서울','0109734','남',to_date('1988.01.25','yyyy.mm.dd'));
-	insert into CU_MEMBER(id,password,name,location,tel,gender,birthdate)
-values('neung','1234','이능균','지방','010','남',to_date('1987.08.27','yyyy.mm.dd'));
+	
 -- CU_GROUP_MEMBER 테이블 ( 그룹원 )
 create table cu_group_member(
 	id varchar2(50) not null,
@@ -44,6 +50,7 @@ create table cu_subject_category(
 	subject varchar2(50) primary key,
 	subject_category varchar2(50) not null
 )
+select * from CU_SUBJECT_CATEGORY
 
 -- CU_GROUP 테이블 ( 그룹 )
 create table cu_group(
