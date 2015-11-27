@@ -1,3 +1,16 @@
+-- CU_MEMBER 테이블( 회원 )
+create table cu_member(
+	id varchar2(50) primary key,
+	password varchar2(50) not null,
+	name varchar2(50) not null,
+	location varchar2(50) not null,
+	tel varchar2(50) not null,
+	gender varchar2(50) not null,
+	birthdate date not null
+)
+drop table cu_member;
+select * from cu_member;
+
 
 -- CU_BOARD 테이블( 자유 게시판 )
 create table cu_board(
@@ -12,38 +25,9 @@ create table cu_board(
 )
 drop table cu_board;
 select * from cu_board;
-
 create sequence cu_board_seq;
 
 insert into CU_BOARD values(CU_BOARD_seq.nextval, )
-
-
-
-
-
--- CU_MEMBER 테이블( 회원 )
-create table cu_member(
-	id varchar2(50) primary key,
-	password varchar2(50) not null,
-	name varchar2(50) not null,
-	location varchar2(50) not null,
-	tel varchar2(50) not null,
-	gender varchar2(50) not null,
-	birthdate date not null
-)
-drop table cu_member;
-select * from cu_member;
-	
--- CU_GROUP_MEMBER 테이블 ( 그룹원 )
-create table cu_group_member(
-	id varchar2(50) not null,
-	gleader_id varchar2(50) not null,
-	foreign key(id) references cu_member(id),
-	foreign key(gleader_id) references cu_group(gleader_id),
-	constraint pk_cu_group_member primary key (id, gleader_id)
-)
-drop table cu_group_member;
-select * from cu_group_member;
 
 -- CU_SUBJECT_CATEOGRY 테이블(스터디 과목)
 create table cu_subject_category(
@@ -51,6 +35,7 @@ create table cu_subject_category(
 	subject_category varchar2(50) not null
 )
 select * from CU_SUBJECT_CATEGORY
+drop table cu_subject_category;
 
 -- CU_GROUP 테이블 ( 그룹 )
 create table cu_group(
@@ -66,6 +51,22 @@ create table cu_group(
 insert into cu_group values ('java', '레오', )
 drop table cu_group;
 select * from cu_group;
+
+
+-- CU_GROUP_MEMBER 테이블 ( 그룹원 )
+create table cu_group_member(
+	id varchar2(50) not null,
+	gleader_id varchar2(50) not null,
+	foreign key(id) references cu_member(id),
+	foreign key(gleader_id) references cu_group(gleader_id),
+	constraint pk_cu_group_member primary key (id, gleader_id)
+)
+drop table cu_group_member;
+select * from cu_group_member;
+
+
+
+
 
 -- CU_GROUP_JOIN ( 그룹 가입 신청 )
 create table cu_group_join (
