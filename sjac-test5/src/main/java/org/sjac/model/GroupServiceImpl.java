@@ -67,6 +67,7 @@ public class GroupServiceImpl implements GroupService{
 
 	@Override
 	public List<GroupVO> getAllGroupList() {	
+		System.out.println("서비스 : " + groupDAO.getAllGroupList());
 		return groupDAO.getAllGroupList();
 	}
 

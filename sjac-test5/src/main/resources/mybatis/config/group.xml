@@ -13,10 +13,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="gLocation" column="glocation"/>
 		<result property="subjectVO.subject" column="gsubject"/>
 		<result property="subjectVO.subjectCategory" column="subject_category"/>
+		<result property="subjectVO.categoryImg" column="category_image"/>
 	</resultMap>
 
 	<select id="getAllGroupList" resultMap="groupRM">
-		select g.gleader_id as gleader_id, g.gname as gname, g.ginfo as ginfo, g.gmember_count as gmember_count, g.glocation as glocation, g.gsubject as gsubject, s.subject_category as subject_category, c.name as name
+		select g.gleader_id as gleader_id, g.gname as gname, g.ginfo as ginfo, g.gmember_count as gmember_count, g.glocation as glocation, 
+		g.gsubject as gsubject, s.subject_category as subject_category, c.name as name, s.category_image as category_image
 		from cu_member c, cu_group g, cu_subject_category s
 		where c.id = g.gleader_id and g.gsubject = s.subject
 	</select>

@@ -23,7 +23,7 @@
 
 							<!-- 이미지 넣는 부분 시작 -->
 							<div class="item-img-grid">
-								<img alt="레오" src="assets/img/products/product-1.jpg" class="img-responsive img-center">
+								<img alt="레오" src="${initParam.root }${gvo.subjectVO.categoryImg}" class="img-responsive img-center">
 							</div>
 							<!-- 이미지 넣는 부분 끝 -->
 

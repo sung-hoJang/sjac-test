@@ -3,13 +3,18 @@ package org.sjac.model;
 public class SubjectVO {
 	private String subject;
 	private String subjectCategory;
-	public SubjectVO(String subject, String subjectCategory) {
+	private String categoryImg;
+	
+	
+	public SubjectVO() {
+		super();
+	}
+	
+	public SubjectVO(String subject, String subjectCategory, String categoryImg) {
 		super();
 		this.subject = subject;
 		this.subjectCategory = subjectCategory;
-	}
-	public SubjectVO() {
-		super();
+		this.categoryImg = categoryImg;
 	}
 	public String getSubject() {
 		return subject;
@@ -23,11 +28,18 @@ public class SubjectVO {
 	public void setSubjectCategory(String subjectCategory) {
 		this.subjectCategory = subjectCategory;
 	}
+	public String getCategoryImg() {
+		return categoryImg;
+	}
+	public void setCategoryImg(String categoryImg) {
+		this.categoryImg = categoryImg;
+	}
 	@Override
 	public String toString() {
 		return "SubjectVO [subject=" + subject + ", subjectCategory="
-				+ subjectCategory + "]";
+				+ subjectCategory + ", categoryImg=" + categoryImg + "]";
 	}
+	
 	
 	
 }
